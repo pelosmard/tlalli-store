@@ -10,7 +10,7 @@ export const Product = ({ item }: any) => {
     
     return (
         <div className='w-80 productContainer'>
-            <Link to={`/product/${item._id}`}>
+            <Link to={`/product/${item.id}`}>
                 <div className="product">
                     <div className='imageContainer'>
                         {/* <ImageSlider images={item?.img} /> */}

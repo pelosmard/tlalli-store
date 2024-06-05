@@ -41,6 +41,19 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
+/*
+For production, just insert these rows manually and use sync() without parameters to avoid dropping data:
+
+...
+const app = express();
+app.use(...);
+
+const db = require("./app/models");
+
+db.sequelize.sync();
+...
+*/
+
 function initial() {
   Role.create({
     id: 1,

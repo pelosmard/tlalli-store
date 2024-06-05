@@ -33,25 +33,25 @@ const cartSlice = createSlice({
 
             //TODO: REMOVE ONLY SPECIFIC ELEMENT, NO FILTER THEM ALL
             (state.quantity === 0) ? state.quantity = 0 : state.quantity--;
-            const nextProducts = state.products.filter(product => product._id !== action.payload._id);
+            const nextProducts = state.products.filter(product => product.id !== action.payload.id);
             state.products = nextProducts;
             state.total -= action.payload.price * action.payload.quantity; 
         },
         plusProduct: (state, action) => {
-            const productIndex = state.products.findIndex(product => product._id === action.payload._id);
+            const productIndex = state.products.findIndex(product => product.id === action.payload.id);
             if (state.products[productIndex].quantity >= 1) {
                 state.products[productIndex].quantity += 1;
                 state.total += state.products[productIndex].price * 1;
             }
         },
         restProduct: (state, action) => {
-            const productIndex = state.products.findIndex(product => product._id === action.payload._id);
+            const productIndex = state.products.findIndex(product => product.id === action.payload.id);
             if (state.products[productIndex].quantity > 1) {
                 state.products[productIndex].quantity -= 1;
                 state.total -= state.products[productIndex].price * 1;
             } else if (state.products[productIndex].quantity === 1) {
                 (state.quantity === 0) ? state.quantity = 0 : state.quantity--;
-                const nextProducts = state.products.filter(product => product._id !== action.payload._id);
+                const nextProducts = state.products.filter(product => product.id !== action.payload.id);
                 state.products = nextProducts;
                 state.total -= action.payload.price * action.payload.quantity;
             }

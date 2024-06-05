@@ -13,7 +13,7 @@ export const UpdateProfile = () => {
     // const [profileSelected, setProfileSelected] = useState<any>("");
     // const [profileResponse, setProfileResponse] = useState<any>("");
 
-    const { _id, username, email } = useSelector((state: RootStateOrAny) => state.user.currentUser);
+    const { id, username, email } = useSelector((state: RootStateOrAny) => state.user.currentUser);
     // const user = useSelector((state: RootStateOrAny) => state.user.currentUser);
     // const { photoURL } = user;
 
@@ -47,7 +47,7 @@ export const UpdateProfile = () => {
             <div className="flex justify-center mt-12 w-5/6 md:w-2/3 xl:w-1/2 mx-auto bg-indigo-300/75 rounded-md">
                 <div className="flex flex-col-reverse xl:flex-row w-2/3 m-12 items-center justify-around">
                     <Formik
-                        initialValues={{ id: _id, username: username, email: email }}
+                        initialValues={{ id: id, username: username, email: email }}
                         validationSchema={updateSchema}
                         onSubmit={async (values, { setSubmitting }) => {
                             // uploadProfileImage();

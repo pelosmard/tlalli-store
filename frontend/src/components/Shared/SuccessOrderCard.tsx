@@ -1,7 +1,7 @@
 
 export const SuccessOrderCard = (order) => {
 
-  const { _id, address, amount } = order.order;
+  const { id, address, amount } = order.order;
   const { line1, city, postal_code, country } = address;
 
   return (
@@ -10,7 +10,7 @@ export const SuccessOrderCard = (order) => {
       <span className="thanks">Muchas gracias por su compra 😁</span>
       <div>
         <span>Su ID de orden de compra es:</span>
-        <span className="id">{_id}</span>
+        <span className="id">{id}</span>
       </div>
       <span>Se enviarán los productos a la siguiente dirección:</span>
       <span className="address">{`Calle:${line1} Ciudad:${city} Código Postal: ${postal_code} Pais: ${country}`}</span>

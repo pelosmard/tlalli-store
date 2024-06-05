@@ -28,7 +28,7 @@ const favoriteSlice = createSlice({
         removeFavorite: (state, action) => {
             //TODO: REMOVE ONLY SPECIFIC ELEMENT, NO FILTER THEM ALL
             // (state.quantity === 0) ? state.quantity = 0 : state.quantity--;
-            // const nextProducts = state.products.filter(product => product._id !== action.payload._id);
+            // const nextProducts = state.products.filter(product => product.id !== action.payload.id);
             // state.products = nextProducts;
             // state.total -= action.payload.price * action.payload.quantity;
         },

@@ -14,7 +14,7 @@ export const Purchases = () => {
     const { username } = currentUser;
     const dispatch = useDispatch();
     const { accessToken } = currentUser;
-    const { _id } = currentUser;
+    const { id } = currentUser;
 
     const refreshPage = () => {
         navigate(0);
@@ -22,11 +22,11 @@ export const Purchases = () => {
 
     useEffect(() => {
         const getPurchases = async () => {
-            const data = await getUserPurchases(dispatch, _id, accessToken);
+            const data = await getUserPurchases(dispatch, id, accessToken);
             setPurchases(data);
         }
         getPurchases();
-    }, [dispatch, accessToken, _id]);
+    }, [dispatch, accessToken, id]);
     
     const handleCancelPurchase = (id: string) => {
         Swal.fire({
@@ -40,7 +40,7 @@ export const Purchases = () => {
             cancelButtonText: "No"            
         }).then((result) => {
             if (result.isConfirmed) {                
-                cancelPurchase(dispatch, id, _id, refreshPage);                
+                cancelPurchase(dispatch, id, id, refreshPage);                
             }
         })
     }
@@ -63,7 +63,7 @@ export const Purchases = () => {
                                             ) :
                                             (
                                                 purchases?.map(purchase => {
-                                                    const { address, amount, createdAt, status, _id } = purchase
+                                                    const { address, amount, createdAt, status, id } = purchase
                                                     const { city, country, line1, postal_code, state } = address;
                                                     const { products } = purchase;
                                                     const CreationDate = new Date(createdAt);
@@ -71,7 +71,7 @@ export const Purchases = () => {
                                                     const CreationDateParsed = CreationDate.toLocaleDateString("es-Mx", options);
 
                                                     return (
-                                                        <div key={_id} className="flex flex-col m-2 bg-gray-300/70 p-2 rounded-md">
+                                                        <div key={id} className="flex flex-col m-2 bg-gray-300/70 p-2 rounded-md">
                                                             <div className="flex flex-col sm:flex-col md:flex-row items-center justify-between">
                                                                 <div className="flex flex-col sm:flex-row text-sm w-full">
                                                                     <div className="flex flex-col m-2 md:m-4">
@@ -88,8 +88,8 @@ export const Purchases = () => {
                                                                     </div>
                                                                 </div>
                                                                 <div className="flex flex-col text-sm md:mr-4">
-                                                                    <span>Orden Nº {_id}</span>
-                                                                    <span className='text-red-600 cursor-pointer' onClick={() => handleCancelPurchase(_id)}>Cancelar Compra</span>
+                                                                    <span>Orden Nº {id}</span>
+                                                                    <span className='text-red-600 cursor-pointer' onClick={() => handleCancelPurchase(id)}>Cancelar Compra</span>
                                                                 </div>
                                                             </div>
                                                             <span className="ml-4">Productos Comprados</span>

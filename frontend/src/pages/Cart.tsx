@@ -15,7 +15,7 @@ const Cart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const cart = useSelector((state: RootStateOrAny) => state.cart);
-    const { _id, accessToken } = useSelector((state: RootStateOrAny) => state.user.currentUser);
+    const { id, accessToken } = useSelector((state: RootStateOrAny) => state.user.currentUser);
     const { products } = useSelector((state: RootStateOrAny) => state.cart);
     const stripeKey = process.env.REACT_APP_STRIPE_KEY;
     const [stripeToken, setStripeToken] = useState(null);
@@ -34,7 +34,7 @@ const Cart = () => {
                     amount: cart.total * 100
                 }
 
-                const data = await makePurchaseRequest(dispatch, stripeData, _id, accessToken);
+                const data = await makePurchaseRequest(dispatch, stripeData, id, accessToken);
                 dispatch(removeLoading());
                 navigate("/success", {
                     state: {
@@ -49,7 +49,7 @@ const Cart = () => {
         }
 
         stripeToken && makeRequest();
-    }, [stripeToken, cart.total, navigate, cart, _id, accessToken, dispatch])
+    }, [stripeToken, cart.total, navigate, cart, id, accessToken, dispatch])
 
     const handleCleanCart = async () => {
         Swal.fire({
@@ -109,7 +109,7 @@ const Cart = () => {
                                 <div className="info animate__animated animate__fadeIn animate__faster">
                                     {
                                         products.map((product) => (
-                                            <div className="product" key={product._id.$oid}>
+                                            <div className="product" key={product.id.$oid}>
                                                 <div className="productDetail">
                                                     <img className='imageProduct' src={product?.img}
                                                         alt="" />
@@ -117,7 +117,7 @@ const Cart = () => {
                                                         <span
                                                             className='productName'><b>Articulo:</b> {`${product.title.substring(0, 28)}...`}</span>
                                                         <span
-                                                            className='productId'><b>Código:</b> {product._id}</span>
+                                                            className='productId'><b>Código:</b> {product.id}</span>
                                                         <span
                                                             className='productSize'><b>Tamaño:</b> {product.size}</span>
                                                     </div>

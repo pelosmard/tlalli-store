@@ -55,18 +55,13 @@ const ProductList = () => {
                 </div>
                 <div className="filterContainer">
                     <div className="filter">
-                        <p className="filterText">Buscar por número: </p>
+                        <p className="filterText">Buscar por tamaño: </p>
                         <select className='border-2 border-gray-500 p-1 rounded-md' name="size" onChange={handleFilters}>
                             <option value="" disabled>Tamaño</option>
-                            <option value="24">24</option>
-                            <option value="24.5">24.5</option>
-                            <option value="25">25</option>
-                            <option value="25.5">25.5</option>
-                            <option value="26">26</option>
-                            <option value="26.5">26.5</option>
-                            <option value="27">27</option>
-                            <option value="27.5">27.5</option>
-                            <option value="28">28</option>
+                            <option value="125">125Ml.</option>
+                            <option value="250">250Ml</option>
+                            <option value="500">500Ml</option>
+                            <option value="1000">1000Ml</option>
                         </select>
                     </div>
                     <div className="filter">

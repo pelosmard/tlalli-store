@@ -8,7 +8,7 @@ import { BallTriangle } from "react-loader-spinner";
 const Profile = () => {
 
     const loading = useSelector((state: RootStateOrAny) => state.user.ui);
-    const { _id, accessToken } = useSelector((state: RootStateOrAny) => state.user.currentUser);
+    const { id, accessToken } = useSelector((state: RootStateOrAny) => state.user.currentUser);
     const user = useSelector((state: RootStateOrAny) => state.user.currentUser);
     const { username, photoURL, email, createdAt, updatedAt } = user;
     const CreationDate = new Date(createdAt);
@@ -37,7 +37,7 @@ const Profile = () => {
             cancelButtonText: "Cancelar"
         }).then((result) => {
             if (result.isConfirmed) {
-                dispatch(deleteUser(dispatch, _id, accessToken, navigateToHome));
+                dispatch(deleteUser(dispatch, id, accessToken, navigateToHome));
             }
         })
     }
@@ -76,7 +76,7 @@ const Profile = () => {
                                 </div>
                             </div>
                             <div className="flex justify-end bg-gray-700/90 text-amber-50 w-5/6 md:w-2/3 xl:w-1/2 mx-auto rounded-md md:text-md lg:text-lg drop-shadow-md shadow-sm shadow-slate-500">
-                                <Link to={`/profile/updateProfile/${_id}`} className="">
+                                <Link to={`/profile/updateProfile/${id}`} className="">
                                     <button disabled={false} className="p-2 m-2 bg-blue-200 hover:bg-blue-200/90 text-black cursor-pointer rounded-md disabled:bg-gray-400 disabled:text-gray-300 disabled:cursor-not-allowed">Actualizar</button>
                                 </Link>
                                 <Link to={"/"} className="p-2 m-2 bg-red-200 hover:bg-red-200/90 text-black cursor-pointer rounded-md" onClick={handleDelete}>Eliminar</Link>

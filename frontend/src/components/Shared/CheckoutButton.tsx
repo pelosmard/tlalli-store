@@ -3,7 +3,7 @@
 
 export const CheckoutButton = ({ items }) => {
 
-    // const { _id } = useSelector((state: RootStateOrAny) => state.user.currentUser);
+    // const { id } = useSelector((state: RootStateOrAny) => state.user.currentUser);
 
     const handleCheckout = async () => {
         const res = await fetch(`https://olympus-backend.vercel.app/api/stripe/create-checkout-session`, {
