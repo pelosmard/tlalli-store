@@ -28,7 +28,7 @@ db.sequelize.sync({force: true}).then(() => {
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to backend application." });
+  res.json({ message: "Bienvenido a la aplicación backend." });
 });
 
 // routes
