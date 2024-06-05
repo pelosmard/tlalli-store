@@ -8,7 +8,7 @@ verifyToken = (req, res, next) => {
 
   if (!token) {
     return res.status(403).send({
-      message: "No token provided!"
+      message: "¡No se proporciona ningun token!"
     });
   }
 
@@ -17,7 +17,7 @@ verifyToken = (req, res, next) => {
             (err, decoded) => {
               if (err) {
                 return res.status(401).send({
-                  message: "Unauthorized!",
+                  message: "No autorizado!",
                 });
               }
               req.userId = decoded.id;
@@ -76,7 +76,7 @@ isModeratorOrAdmin = (req, res, next) => {
       }
 
       res.status(403).send({
-        message: "Require Moderator or Admin Role!"
+        message: "Require Moderator o Admin Role!"
       });
     });
   });

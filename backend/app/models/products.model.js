@@ -22,8 +22,8 @@ module.exports = (sequelize, Sequelize) => {
     price: {
       type: Sequelize.DECIMAL(10, 2)
     },
-    sizeenum: {
-      type: Sequelize.enum,
+    sizenum: {
+      type: Sequelize.ENUM,
       values:  ['125Ml.', '250Ml', '500Ml', '1000Ml']
     },
     title: {

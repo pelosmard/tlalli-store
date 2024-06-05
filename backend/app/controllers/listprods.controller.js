@@ -1,12 +1,26 @@
 const db = require("../models");
 const config = require("../config/auth.config");
-const User = db.user;
-const Role = db.role;
+const products = db.products;
 
 const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+
+exports.listprods = (req, res) => {
+  console.log('algo');
+  products
+    .findAll({
+      raw: true,
+      order: [['productid', 'DESC']],
+    })
+    .then(
+      res.status(201).send({ message: 'Van productos' })
+    )
+    .catch((err) => {
+      res.status(500).send({ message: 'hola' });
+    });
+};
 
 exports.signup = (req, res) => {
   // Save User to Database

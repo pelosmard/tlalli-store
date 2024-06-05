@@ -1,6 +1,6 @@
 module.exports = {
   HOST: "localhost",
-  USER: "admin",
+  USER: "postgres",
   PASSWORD: "admin",
   DB: "tlallidb",
   dialect: "postgres",
