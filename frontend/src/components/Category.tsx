@@ -4,7 +4,7 @@ const Category = ({ item }: any) => {
     return (
         <Link to={`/products/${item.category}`}>
             <div className='category'>
-                <img className='categoryBackground' src={item.img} alt="" />
+                <img className='categoryBackground' src={item.src} alt="" />
                 <p className='title'>{item.title}</p>
             </div>
         </Link> 

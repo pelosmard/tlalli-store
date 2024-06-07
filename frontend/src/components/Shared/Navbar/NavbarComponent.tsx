@@ -56,7 +56,7 @@ export const NavbarComponent = () => {
       <Navbar.Brand>
         <Navbar.Toggle showIn='sm' aria-label='toggle navigation' />
         <img
-          src='/logo_tlalli_último_solo_letras.png'
+          src={process.env.PUBLIC_URL + '/logo_tlalli_último_solo_letras.png'}
           width={34}
           height={34}
           alt=''
