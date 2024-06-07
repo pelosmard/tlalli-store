@@ -10,15 +10,18 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 
 exports.lisxcategory = (req, res) => {
-  console.log('Entró a lisxcategory');
+  //console.log('Entró a lisxcategory');
+  let idCategory = req.params.idCategory;
+
   const cat0 = req.query !== undefined ? parseInt(req.query) : 1;
   const qry = req.query;
   const parm= req.params;
+  const categ = req.query.category;
   // const myURL = new URL(req);
   // const cat = myURL.searchParams.get('category');
 
-  console.log(JSON.stringify(req.query));
-  console.log(cat0);
+  //console.log(JSON.stringify(req.query));
+  //console.log(cat0);
   //console.log(cat);
 
   try {
@@ -40,7 +43,7 @@ exports.lisxcategory = (req, res) => {
       */
       raw: true,
       where: {
-        categories: cat0,
+        categories: idCategory,
       },
     }).then(function (prods) {
       console.log(prods);

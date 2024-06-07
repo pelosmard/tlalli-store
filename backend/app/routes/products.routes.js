@@ -13,6 +13,6 @@ module.exports = function(app) {
   console.log("Entró a products.routes");
 
   app.get("/api/products", prodsController.listprods);
-  app.get("/api/products/category/:cat", categoryController.lisxcategory);
+  app.get("/api/products/category/:idCategory", categoryController.lisxcategory);
 
 };
