@@ -1,5 +1,7 @@
 const db = require('../models');
 const config = require('../config/auth.config');
+const querystring = require('querystring');
+const url = require('node:url');
 const Products = db.products;
 
 const Op = db.Sequelize.Op;
@@ -7,8 +9,17 @@ const Op = db.Sequelize.Op;
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 
-exports.listprods = (req, res) => {
-  console.log('Entró a listprods');
+exports.lisxcategory = (req, res) => {
+  console.log('Entró a lisxcategory');
+  const cat0 = req.query !== undefined ? parseInt(req.query) : 1;
+  const qry = req.query;
+  const parm= req.params;
+  // const myURL = new URL(req);
+  // const cat = myURL.searchParams.get('category');
+
+  console.log(JSON.stringify(req.query));
+  console.log(cat0);
+  //console.log(cat);
 
   try {
     Products.findAll({
@@ -28,11 +39,13 @@ exports.listprods = (req, res) => {
       ],
       */
       raw: true,
-      order: [['productid', 'DESC']],
+      where: {
+        categories: cat0,
+      },
     }).then(function (prods) {
       console.log(prods);
       console.log(Products);
-      res.status(200).send({ message: 'Van productos', prods });
+      res.status(200).send({ message: 'Van productos x categoria', prods });
     });
     /*
       .then(res.status(200).send({ message: 'Van productos', Products })){

@@ -24,7 +24,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     sizenum: {
       type: Sequelize.ENUM,
-      values:  ['125Ml.', '250Ml', '500Ml', '1000Ml']
+      values:  ['125Ml', '250Ml', '500Ml', '1000Ml', '025Ml']
     },
     title: {
       type: Sequelize.STRING

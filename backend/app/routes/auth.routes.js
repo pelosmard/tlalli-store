@@ -1,6 +1,5 @@
 const { verifySignUp } = require("../middleware");
 const controller = require("../controllers/auth.controller");
-const prodsController = require("../controllers/listprods.controller");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -10,7 +9,7 @@ module.exports = function(app) {
     );
     next();
   });
-
+  console.log("Entró a auth.routes");
   app.post(
     "/api/auth/signup",
     [
@@ -21,6 +20,5 @@ module.exports = function(app) {
   );
 
   app.post("/api/auth/signin", controller.signin);
-  app.get("/api/listprods", prodsController.listprods);
 
 };
