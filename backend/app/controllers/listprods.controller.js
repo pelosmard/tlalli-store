@@ -12,27 +12,33 @@ exports.listprods = (req, res) => {
 
   try {
     Products.findAll({
-      /*
+      
       attributes: [
-        'productid',
-        'categories',
-        'desc',
-        'color',
-        'img',
-        'inStock',
-        'price',
-        'sizenum',
+        ['productid', 'id'],
         'title',
+        'desc',
+        'img',
+        'categories',
+        'sizenum',
+        'color',
+        'price',
+        'inStock',
         'createdAt',
         'updatedAt',
-      ],
-      */
+      ],  
       raw: true,
-      order: [['productid', 'DESC']],
-    }).then(function (prods) {
-      console.log(prods);
-      console.log(Products);
-      res.status(200).send({ message: 'Van productos', prods });
+      order: [['id', 'DESC']],
+    }).then(function (productos) {
+      console.log(productos);
+    /*
+      const resasjson = productos.map( s => Object.values(s)[0] );
+          const resasjson = JSON.parse(productos);
+      console.log(resasjson);
+      const jsontostrng = JSON.parse(resasjson);
+      console.log(jsontostrng);
+    */
+      //res.status(200).send({ message: 'Van productos', productos });
+      res.status(200).send(productos);
     });
     /*
       .then(res.status(200).send({ message: 'Van productos', Products })){

@@ -51,6 +51,9 @@ export const Products = ({ category, filters, sort }: any) => {
                 [...prev].sort((a, b) => b.price - a.price)
             )
         }
+
+        //console.log(filteredProducts);
+
     }, [sort])
 
 

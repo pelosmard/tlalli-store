@@ -7,6 +7,8 @@ import { startFetching } from './userRedux';
 import axios from 'axios';
 
 const BASE_URL = "https://olympus-backend.vercel.app/api";
+//const BASE_URL = "http://localhost:8080/api";
+
 
 export const getSingleProduct = async (dispatch, productId: string) => {
     try {
@@ -23,7 +25,12 @@ export const getSingleProduct = async (dispatch, productId: string) => {
 export const getAllProducts = async (dispatch, category: any) => {
     dispatch(setLoading());
     try {
-        const products: any = await publicRequest.get(category ? `/products?category=${category}` : '/products');
+        //const products: any = await publicRequest.get(category ? `/products/category?category=${category}` : '/products');
+        const products: any = await publicRequest.get(category ? `http://localhost:8080/api/products/category/${category}` : 'http://localhost:8080/api/products');
+
+
+        console.log(products);
+
         const { data } = products;
         dispatch(removeLoading());
         return data;

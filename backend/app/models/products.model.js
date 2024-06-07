@@ -34,6 +34,9 @@ module.exports = (sequelize, Sequelize) => {
     },
     updatedAt: {
       type: Sequelize.DATE
+    },
+    __v: {
+      type: Sequelize.INTEGER
     }
   });
 
