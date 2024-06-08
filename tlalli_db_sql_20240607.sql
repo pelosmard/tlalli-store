@@ -5,7 +5,7 @@
 -- Dumped from database version 16.1
 -- Dumped by pg_dump version 16.1
 
--- Started on 2024-06-07 11:40:56
+-- Started on 2024-06-07 23:08:02
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,6 +18,7 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+DROP DATABASE IF EXISTS tlallidb;
 --
 -- TOC entry 4896 (class 1262 OID 16417)
 -- Name: tlallidb; Type: DATABASE; Schema: -; Owner: postgres
@@ -431,7 +432,7 @@ ALTER TABLE ONLY public.user_roles
     ADD CONSTRAINT "user_roles_userUserid_fkey" FOREIGN KEY ("userUserid") REFERENCES public.users(userid) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
--- Completed on 2024-06-07 11:40:56
+-- Completed on 2024-06-07 23:08:02
 
 --
 -- PostgreSQL database dump complete

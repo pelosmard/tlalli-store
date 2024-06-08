@@ -5,7 +5,7 @@
 -- Dumped from database version 16.1
 -- Dumped by pg_dump version 16.1
 
--- Started on 2024-06-07 11:44:04
+-- Started on 2024-06-07 23:08:47
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -40,12 +40,14 @@ SET row_security = off;
 -- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.products VALUES (1, 1, 'Prueba artículo 3', 'Blanco', 'http://localhost/images/1_prueba3.jpg', true, 165.00, '500Ml', 'Shampoo con Keratina de 500ML.', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
-INSERT INTO public.products VALUES (2, 1, 'Prueba artículo 4', 'Azul', 'http://localhost/images/1_prueba4.jpg', true, 135.00, '500Ml', 'Acondicionador con Keratina de 500ML.', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
-INSERT INTO public.products VALUES (3, 2, 'Prueba artículo Sistema 5', 'Blanco', 'http://localhost/images/1_prueba5.jpg', true, 885.00, '1000Ml', 'Sistema vegano Shampoo con Keratina de 1L.', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
-INSERT INTO public.products VALUES (4, 2, 'Prueba artículo Sistema 6', 'Azul', 'http://localhost/images/1_prueba6.jpg', true, 835.00, '1000Ml', 'Sistema vegano Acondicionador con Keratina de 1L.', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
-INSERT INTO public.products VALUES (5, 2, 'Prueba artículo Sistema 7', 'Blanco', 'http://localhost/images/1_prueba7.jpg', true, 885.00, '500Ml', 'Sistema vegano Shampoo con Keratina de 500ML.', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
-INSERT INTO public.products VALUES (6, 2, 'Prueba artículo Sistema 8', 'Azul', 'http://localhost/images/1_prueba8.jpg', true, 835.00, '500Ml', 'Sistema vegano Acondicionador con Keratina de 500ML.', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
+INSERT INTO public.products VALUES (8, 2, 'Sistema Tratamienta alopecia', 'Blanco', 'http://localhost:8080/Sistema1.png', true, 1850.00, '500Ml', 'Sistema Tratamienta alopecia', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
+INSERT INTO public.products VALUES (1, 1, 'Acondicionador 1 Litro', 'Blanco', 'http://localhost:8080/Acondicionador_1l.png', true, 220.00, '500Ml', 'Acondicionador 1 Litro', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
+INSERT INTO public.products VALUES (6, 1, 'Shampoo 500 MiliLitros', 'Blanco', 'http://localhost:8080/Shampoo_500.png', true, 140.00, '500Ml', 'Shampoo_500 MiliLitros', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
+INSERT INTO public.products VALUES (2, 1, 'acondicionador 250 MiliLitros', 'Blanco', 'http://localhost:8080/Acondicionador_250.png', true, 80.00, '250Ml', 'acondicionador 250 MiliLitros', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
+INSERT INTO public.products VALUES (3, 1, 'Acondicionador_500 MiliLitros', 'Blanco', 'http://localhost:8080/Acondicionador_500.png', true, 130.00, '500Ml', 'Acondicionador_500 MiliLitros', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
+INSERT INTO public.products VALUES (4, 1, 'Shampoo 1 Litro', 'Blanco', 'http://localhost:8080/Shampoo_1l.png', true, 285.00, '500Ml', 'Shampoo 1 Litro', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
+INSERT INTO public.products VALUES (5, 1, 'Shampoo 250 MiliLitros', 'Blanco', 'http://localhost:8080/Shampoo_250.png', true, 85.00, '250Ml', 'Shampoo 250 MiliLitros', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
+INSERT INTO public.products VALUES (7, 2, 'Sistema Alaciado en casa', 'Blanco', 'http://localhost:8080/Sistema2.png', true, 1750.00, '500Ml', 'Sistema Alaciado en casa', '2024-06-06 15:06:40.47395-06', '2024-06-06 15:06:40.47395-06', NULL);
 
 
 --
@@ -117,7 +119,7 @@ SELECT pg_catalog.setval('public.address_addressid_seq', 1, false);
 SELECT pg_catalog.setval('public.purchase_purchaseid_seq', 1, false);
 
 
--- Completed on 2024-06-07 11:44:04
+-- Completed on 2024-06-07 23:08:47
 
 --
 -- PostgreSQL database dump complete

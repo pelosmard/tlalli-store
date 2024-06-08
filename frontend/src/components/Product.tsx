@@ -6,8 +6,8 @@ export const Product = ({ item }: any) => {
         return (str.length > n) ? str.slice(0, n - 1) + '...' : str;
     }
 
-    var imgURL = item.img  + ".jpg";
-    
+    //var imgURL = item.img  + ".jpg";
+    const  imgURL = item.img;
     return (
         <div className='w-80 productContainer'>
             <Link to={`/product/${item.id}`}>

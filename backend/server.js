@@ -27,6 +27,11 @@ const Role = db.role;
   //initial();
 });
 
+//the following code to serve images files in a directory named images
+//app.use(express.static('images'));
+app.use(express.static(__dirname + '\\images'));
+console.log(__dirname + '\\images');
+
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Bienvenido a la aplicación backend." });

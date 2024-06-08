@@ -12,7 +12,6 @@ exports.listprods = (req, res) => {
 
   try {
     Products.findAll({
-      
       attributes: [
         ['productid', 'id'],
         'title',
@@ -25,26 +24,41 @@ exports.listprods = (req, res) => {
         'inStock',
         'createdAt',
         'updatedAt',
-      ],  
+      ],
       raw: true,
       order: [['id', 'DESC']],
     }).then(function (productos) {
       console.log(productos);
-    /*
-      const resasjson = productos.map( s => Object.values(s)[0] );
-          const resasjson = JSON.parse(productos);
-      console.log(resasjson);
-      const jsontostrng = JSON.parse(resasjson);
-      console.log(jsontostrng);
-    */
-      //res.status(200).send({ message: 'Van productos', productos });
       res.status(200).send(productos);
     });
-    /*
-      .then(res.status(200).send({ message: 'Van productos', Products })){
-        console.log(Products);
-      };
-  */
+  } catch (error) {
+    res.status(500).send({ message: err.message });
+  }
+};
+
+exports.findprod = (req, res) => {
+  console.log('Entró a findprod');
+  const productId = req.params.productId;
+
+  try {
+    Products.findByPk(productId, {
+      attributes: [
+        ['productid', 'id'],
+        'title',
+        'desc',
+        'img',
+        'categories',
+        'sizenum',
+        'color',
+        'price',
+        'inStock',
+        'createdAt',
+        'updatedAt',
+      ],
+    }).then(function (producto) {
+      console.log(producto);
+      res.status(200).send(producto);
+    });
   } catch (error) {
     res.status(500).send({ message: err.message });
   }
